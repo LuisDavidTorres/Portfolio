@@ -1,0 +1,21 @@
+---
+interface props {
+  title: string;
+  subtitle: string;
+  description: string;
+  image: string;
+}
+
+const { title, subtitle, description, image } = Astro.props;
+---
+
+<div class="mb-10 last:mb-0 flex flex-col">
+  <section>
+    <h1>{title}</h1>
+    <p>{subtitle}</p>
+  </section>
+  <section class="flex flex-col xl:flex-row mt-8 items-start">
+    <p class="opacity-80">{description}</p>
+    <img src={image} width="300px" alt={image} class="relative z-0 rounded-lg transition-all duration-300 hover:scale-110 hover:cursor-pointer mt-4 sm:mt-0"/>
+</section>
+</div>

@@ -1,0 +1,28 @@
+---
+import ExperiencieItem from "./ExperiencieItem.astro";
+
+const Experience = [
+  {
+    date: "Abril 2024",
+    title: "Sitio web para cotizaciones de repuestos Automotrices",
+    description:
+      "Diseñé y desarrollé un sitio web para conectar compradores y vendedores de repuestos, utilizando React para el frontend y Node.js para el backend. Implementé la pasarela de pago Transbank y las notificaciones vía WhatsApp.",
+  },
+  {
+    date: "Enero 2023",
+    title: "Sistema ETL automatizado para reportes",
+    description:
+      "Dirigí la implementación de un proyecto destinado a automatizar los reportes diariosde gestión de recursos humanos en la empresa RH Seguridad. Este proyecto reemplazóel proceso manual previo que utilizaba Excel, lo que resulto en una notable reducción del tiempo requerido para la generación y entrega de los reportes",
+  },
+  {
+    date: "Abril 2022",
+    title: "Sistema ETL automatizado para reportes",
+    description:
+      "Lleve a cabo el desarrollo de una aplicación móvil para dispositivos Android utilizando Android Studio, con el propósito de proporcionar datos sobre la radiación actual basados en la ubicación del usuario, haciendo uso del API de MeteoChile.",
+  },
+];
+---
+
+<ol class="relative border-s border-gray-200 dark:border-gray-700 mt-4 ml-3">
+  {Experience.map((experience) => <ExperiencieItem {...experience} />)}
+</ol>

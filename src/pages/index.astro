@@ -1,0 +1,69 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Badge from "../components/Badge.astro";
+import Briefcase from "../components/icons/Briefcase.astro";
+import Code from "../components/icons/Code.astro";
+import Gear from "../components/icons/Gear.astro";
+import ExperienceTimeline from "../components/timeline/ExperienceTimeline.astro";
+import SectionContainer from "../components/SectionContainer.astro";
+import ProyectsGrid from "../components/grids/ProyectsGrid.astro";
+import KnowledgeGrid from "../components/grids/KnowledgeGrid.astro";
+---
+
+<Layout
+  title="Portfolio de Luis - Desarrollador y Programador Web"
+  description="Conoce el trabajo de Luis, desarrollador y programador web. Explora sus proyectos, habilidades y experiencia."
+>
+  <main class="bg-zinc-800 min-h-screen dark:text-white text-white p-8 sm:p-20">
+    <SectionContainer>
+      <h1
+        class="font-bold text-4xl gap-x-2 flex flex-col md:flex-row justify-between"
+      >
+        Hola, Soy Luis <div class="flex mt-2 md:mt-0 items-center">
+          <Badge>Disponible para trabajar</Badge>
+        </div>
+      </h1>
+      <h2 class="mt-10 opacity-80">
+        Ingeniero Informático y Desarrollador Web Full Stack con 1 año de
+        experiencia, residente en La Serena, Chile. <span
+          class="text-green-200/90"
+          >Me especializo en crear sitios web únicos y en automatizar procesos
+          repetitivos</span
+        > para optimizar la eficiencia y productividad.
+      </h2>
+    </SectionContainer>
+    <SectionContainer>
+      <div class="flex gap-x-1 items-start">
+        <Briefcase />
+        <span
+          class="bg-clip-text text-transparent bg-gradient-to-r from-green-300 to-green-100 text-xl font-bold"
+        >
+          Experiencia
+        </span>
+      </div>
+      <ExperienceTimeline />
+    </SectionContainer>
+    <SectionContainer>
+      <div class="flex gap-x-1 items-start">
+        <Code />
+        <span
+          class="bg-clip-text text-transparent bg-gradient-to-r from-green-300 to-green-100 text-xl font-bold"
+        >
+          Proyectos
+        </span>
+      </div>
+      <ProyectsGrid />
+    </SectionContainer>
+    <SectionContainer>
+      <div class="flex gap-x-1 items-start">
+        <Gear />
+        <span
+          class="bg-clip-text text-transparent bg-gradient-to-r from-green-300 to-green-100 text-xl font-bold"
+        >
+          Conocimientos
+        </span>
+      </div> 
+      <KnowledgeGrid/>
+    </SectionContainer>
+  </main>
+</Layout>
