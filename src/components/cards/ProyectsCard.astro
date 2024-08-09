@@ -1,21 +1,21 @@
 ---
 interface props {
   title: string;
-  subtitle: string;
+  role: string;
   description: string;
   image: string;
 }
 
-const { title, subtitle, description, image } = Astro.props;
+const { title, role, description, image } = Astro.props;
 ---
 
 <div class="mb-10 last:mb-0 flex flex-col">
   <section>
-    <h1>{title}</h1>
-    <p>{subtitle}</p>
+    <h1 class="text-gray-100">{title}</h1>
+    <p class="text-white">{role}</p>
   </section>
-  <section class="flex flex-col xl:flex-row mt-8 items-center md:items-start">
-    <p class="opacity-80">{description}</p>
+  <section class="flex flex-col xl:flex-row mt-5 items-center md:items-start">
+    <p class="text-gray-300 opacity-90">{description}</p>
     <img
       src={image}
       width="300px"
