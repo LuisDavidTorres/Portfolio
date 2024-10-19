@@ -1,11 +1,12 @@
 ---
 interface props {
   date: string;
+  position: string;
   title: string;
   description: string;
 }
 
-const { date, title, description } = Astro.props;
+const { date, position, title, description } = Astro.props;
 ---
 
 <li class="mb-10 last:mb-0 ms-4">
@@ -13,10 +14,13 @@ const { date, title, description } = Astro.props;
     class="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"
   >
   </div>
-  <time
-    class="mb-1 text-sm font-normal leading-none text-white dark:text-white"
-    >{date}</time
-  >
+  <section class="mb-1 flex items-center space-x-2">
+    <time
+      class="text-sm font-normal leading-none text-white dark:text-white"
+      >{date}</time
+    >
+    <p class="text-sm">{position}</p>
+  </section>
   <h3 class="text-lg font-semibold text-white dark:text-white">
     {title}
   </h3>
