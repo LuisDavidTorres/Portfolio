@@ -8,18 +8,21 @@ import ExperienceTimeline from "../components/timeline/ExperienceTimeline.astro"
 import SectionContainer from "../components/SectionContainer.astro";
 import ProyectsGrid from "../components/grids/ProyectsGrid.astro";
 import KnowledgeGrid from "../components/grids/KnowledgeGrid.astro";
+import ContactForm from "../components/forms/ContactForm.astro";
 ---
 
 <Layout
   title="Portfolio de Luis - Desarrollador y Programador Web"
   description="Conoce el trabajo de Luis, desarrollador y programador web. Explora sus proyectos, habilidades y experiencia."
 >
-  <main class="bg-zinc-800 min-h-screen dark:text-white text-white p-8 sm:px-20">
+  <main
+    class="bg-zinc-800 min-h-screen dark:text-white text-white p-8 sm:px-20"
+  >
     <SectionContainer>
       <h1
-        class="font-bold text-4xl gap-x-2 flex flex-col md:flex-row justify-between"
+        class="font-bold text-4xl gap-x-2 flex flex-col sm:flex-row justify-between"
       >
-        Hola, Soy Luis <div class="flex mt-2 md:mt-0 items-center">
+        Hola, Soy Luis <div class="flex mt-2 sm:mt-0 items-center">
           <Badge>Disponible para trabajar</Badge>
         </div>
       </h1>
@@ -66,6 +69,10 @@ import KnowledgeGrid from "../components/grids/KnowledgeGrid.astro";
         </span>
       </div>
       <KnowledgeGrid />
+    </SectionContainer>
+    <hr class="w-7/12 mx-auto border-gray-600" />
+    <SectionContainer>
+      <ContactForm />
     </SectionContainer>
   </main>
 </Layout>
