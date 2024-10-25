@@ -11,15 +11,15 @@ import Location from "../icons/Location.astro"
 
     <div class="flex flex-col">
       <label class="mb-1 text-sm lg:text-base">Nombre</label>
-      <input class="rounded-md p-2 dark:bg-white text-black" type="text" />
+      <input class="rounded-md p-2 dark:bg-white text-black" type="text" required maxlength="50" />
     </div>
     <div class="flex flex-col">
       <label class="mb-1 text-sm lg:text-base">Correo electrónico</label>
-      <input class="rounded-md p-2 dark:bg-white text-black" type="email" />
+      <input class="rounded-md p-2 dark:bg-white text-black" type="email" required />
     </div>
     <div class="flex flex-col">
       <label class="mb-1 text-sm lg:text-base">Mensaje</label>
-      <textarea class="rounded-md p-2 min-h-[100px] dark:bg-white text-black"
+      <textarea class="rounded-md p-2 min-h-[100px] dark:bg-white text-black" required maxlength="500"
       ></textarea>
     </div>
 
