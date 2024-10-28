@@ -1,9 +1,9 @@
 ---
 import Mail from "../icons/Mail.astro";
-import Location from "../icons/Location.astro"
+import Location from "../icons/Location.astro";
 ---
 
-<div class="flex flex-col lg:flex-row">
+<form class="flex flex-col lg:flex-row">
   <section
     class="flex flex-col p-5 w-full lg:w-1/2 space-y-5 bg-gray-500/10 rounded-t-lg lg:rounded-l-lg lg:rounded-tr-none"
   >
@@ -11,16 +11,27 @@ import Location from "../icons/Location.astro"
 
     <div class="flex flex-col">
       <label class="mb-1 text-sm lg:text-base">Nombre</label>
-      <input class="rounded-md p-2 dark:bg-white text-black" type="text" required maxlength="50" />
+      <input
+        class="rounded-md p-2 dark:bg-white text-black"
+        type="text"
+        required
+        maxlength="50"
+      />
     </div>
     <div class="flex flex-col">
       <label class="mb-1 text-sm lg:text-base">Correo electrónico</label>
-      <input class="rounded-md p-2 dark:bg-white text-black" type="email" required />
+      <input
+        class="rounded-md p-2 dark:bg-white text-black"
+        type="email"
+        required
+      />
     </div>
     <div class="flex flex-col">
       <label class="mb-1 text-sm lg:text-base">Mensaje</label>
-      <textarea class="rounded-md p-2 min-h-[100px] dark:bg-white text-black" required maxlength="500"
-      ></textarea>
+      <textarea
+        class="rounded-md p-2 min-h-[100px] dark:bg-white text-black"
+        required
+        maxlength="500"></textarea>
     </div>
 
     <button class="bg-black/80 hover:bg-black text-white rounded-md p-2 mt-10"
@@ -28,15 +39,17 @@ import Location from "../icons/Location.astro"
     >
   </section>
 
-  <section class="p-5 w-full lg:w-1/2 space-y-5 bg-gray-500/5 rounded-b-lg lg:rounded-e-lg lg:rounded-bl-none">
+  <section
+    class="p-5 w-full lg:w-1/2 space-y-5 bg-gray-500/5 rounded-b-lg lg:rounded-e-lg lg:rounded-bl-none"
+  >
     <p class="mb-2 font-bold text-xl lg:text-2xl">Información de contacto</p>
     <div class="flex items-center">
       <Mail />
       <p class="ml-1 text-sm lg:text-base mt-2">Luisdaviddts@outlook.com</p>
     </div>
     <div class="flex items-center">
-      <Location/>
+      <Location />
       <p class="ml-1 text-sm lg:text-base">La Serena, Chile</p>
     </div>
   </section>
-</div>
+</form>
