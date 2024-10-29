@@ -8,7 +8,7 @@ import ExperienceTimeline from "../components/timeline/ExperienceTimeline.astro"
 import SectionContainer from "../components/SectionContainer.astro";
 import ProyectsGrid from "../components/grids/ProyectsGrid.astro";
 import KnowledgeGrid from "../components/grids/KnowledgeGrid.astro";
-import ContactForm from "../components/forms/ContactForm.astro";
+import ContactForm from "../components/forms/ContactForm";
 ---
 
 <Layout
@@ -65,14 +65,14 @@ import ContactForm from "../components/forms/ContactForm.astro";
         <span
           class="bg-clip-text text-transparent bg-gradient-to-r from-green-300 to-green-100 text-xl font-bold"
         >
-          Conocimientos
+          Stack
         </span>
       </div>
       <KnowledgeGrid />
     </SectionContainer>
     <hr class="w-7/12 mx-auto border-gray-600" />
     <SectionContainer>
-      <ContactForm />
+      <ContactForm client:load/>
     </SectionContainer>
   </main>
 </Layout>
