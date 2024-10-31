@@ -1,26 +1,36 @@
 import Mail from "../icons/Mail";
 import Location from "../icons/Location";
 import { useState } from "react";
+import LoadButton from "../buttons/LoadButon";
 
 export default function ContactForm() {
   const [responseMessage, setResponseMessage] = useState("");
+  const [load, setLoad] = useState(false);
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     try {
       event.preventDefault();
+      setLoad(true)
       const formData = new FormData(event.target as HTMLFormElement);
       const response = await fetch("/api/resend", {
         method: "POST",
         body: formData,
       });
       const data = await response.json();
+
+      if(data.ok){
+        alert("HOLA")
+      }
+
       if (data.message) {
         setResponseMessage(data.message);
       }
     } catch (error) {
       console.error("Error al realizar la consulta a la API:", error);
+    }finally{
+      setLoad(false)
     }
   };
 
@@ -39,6 +49,7 @@ export default function ContactForm() {
               type="text"
               required
               maxLength={50}
+              min={2}
             />
           </div>
           <div className="flex flex-col">
@@ -61,13 +72,19 @@ export default function ContactForm() {
               className="rounded-md p-2 min-h-[100px] dark:bg-white text-black"
               required
               maxLength={500}
+              minLength={20}
             ></textarea>
           </div>
 
-          <button className="bg-black/80 hover:bg-black text-white rounded-md p-2 mt-10">
-            Enviar mensaje
-          </button>
-          {responseMessage && <p>{responseMessage}</p>}
+          <section className="mt-10">
+            {!load ? (
+              <button className="bg-black/50 hover:bg-black text-white rounded-md p-2 w-full">
+                Enviar mensaje
+              </button>
+            ) : (
+              <LoadButton />
+            )}
+          </section>
         </section>
 
         <section className="p-5 w-full lg:w-1/2 space-y-5 bg-gray-500/5 rounded-b-lg lg:rounded-e-lg lg:rounded-bl-none">
