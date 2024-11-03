@@ -2,7 +2,7 @@ import type { APIRoute } from "astro";
 import { Resend } from "resend";
 import { clientSchema } from "../../schemas/client.shema";
 
-const resend = new Resend(import.meta.env.API_KEY_RESEND);
+const resend = new Resend(process.env.API_KEY_RESEND);
 
 export const POST: APIRoute = async ({ request }) => {
   const dataForm = await request.formData();
