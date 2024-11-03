@@ -24,7 +24,7 @@ export default function ContactForm() {
       });
       const data = await response.json();
 
-      if (data.status === 200) {
+      if (response.ok) {
         notify()
       }
 
