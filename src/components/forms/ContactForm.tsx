@@ -3,11 +3,13 @@ import Location from "../icons/Location";
 import { useState } from "react";
 import LoadButton from "../buttons/LoadButon";
 import CharacterCounter from "../counters/CharacterCounter";
+import toast, { Toaster } from 'react-hot-toast';
 
 export default function ContactForm() {
   const [responseMessage, setResponseMessage] = useState<string>("");
   const [load, setLoad] = useState<boolean>(false);
   const [countCharacters, setCountCharacters] = useState<number>(0);
+  const notify = () => toast('Correo enviado');
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -22,8 +24,8 @@ export default function ContactForm() {
       });
       const data = await response.json();
 
-      if (data.ok) {
-        alert("HOLA");
+      if (data.status === 200) {
+        notify()
       }
 
       if (data.message) {
@@ -40,6 +42,7 @@ export default function ContactForm() {
   return (
     <>
       <form className="flex flex-col lg:flex-row" onSubmit={handleSubmit}>
+      <Toaster />
         <section className="flex flex-col p-5 w-full lg:w-1/2 space-y-5 bg-gray-500/10 rounded-t-lg lg:rounded-l-lg lg:rounded-tr-none">
           <p className="mb-2 font-bold text-xl lg:text-2xl">Contáctame</p>
 
