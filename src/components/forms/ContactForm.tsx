@@ -2,6 +2,7 @@ import Mail from "../icons/Mail";
 import Location from "../icons/Location";
 import { useState } from "react";
 import LoadButton from "../buttons/LoadButon";
+import CharacterCounter from "../counters/CharacterCounter";
 
 export default function ContactForm() {
   const [responseMessage, setResponseMessage] = useState("");
@@ -12,7 +13,7 @@ export default function ContactForm() {
 
     try {
       event.preventDefault();
-      setLoad(true)
+      setLoad(true);
       const formData = new FormData(event.target as HTMLFormElement);
       const response = await fetch("/api/resend", {
         method: "POST",
@@ -20,8 +21,8 @@ export default function ContactForm() {
       });
       const data = await response.json();
 
-      if(data.ok){
-        alert("HOLA")
+      if (data.ok) {
+        alert("HOLA");
       }
 
       if (data.message) {
@@ -29,8 +30,9 @@ export default function ContactForm() {
       }
     } catch (error) {
       console.error("Error al realizar la consulta a la API:", error);
-    }finally{
-      setLoad(false)
+    } finally {
+      setLoad(false);
+      (event.target as HTMLFormElement).reset();
     }
   };
 
@@ -66,14 +68,17 @@ export default function ContactForm() {
           </div>
           <div className="flex flex-col">
             <label className="mb-1 text-sm lg:text-base">Mensaje</label>
-            <textarea
-              id="message"
-              name="message"
-              className="rounded-md p-2 min-h-[100px] dark:bg-white text-black"
-              required
-              maxLength={500}
-              minLength={20}
-            ></textarea>
+            <section className="relative">
+            <CharacterCounter characters={40} requiredCharacters={50} />
+              <textarea
+                id="message"
+                name="message"
+                className="rounded-md p-2 min-h-[100px] dark:bg-white text-black w-full"
+                required
+                maxLength={500}
+                minLength={20}
+              ></textarea>
+            </section>
           </div>
 
           <section className="mt-10">
