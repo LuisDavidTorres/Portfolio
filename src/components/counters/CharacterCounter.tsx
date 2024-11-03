@@ -8,7 +8,7 @@ export default function CharacterCounter({
   requiredCharacters,
 }: props) {
   return (
-    <div className="absolute top-0 right-0 text-xs text-gray-500 p-2">
+    <div className="text-xs text-gray-400 flex justify-end">
       {characters}/{requiredCharacters}
     </div>
   );

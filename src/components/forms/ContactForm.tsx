@@ -5,8 +5,9 @@ import LoadButton from "../buttons/LoadButon";
 import CharacterCounter from "../counters/CharacterCounter";
 
 export default function ContactForm() {
-  const [responseMessage, setResponseMessage] = useState("");
-  const [load, setLoad] = useState(false);
+  const [responseMessage, setResponseMessage] = useState<string>("");
+  const [load, setLoad] = useState<boolean>(false);
+  const [countCharacters, setCountCharacters] = useState<number>(0);
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -68,16 +69,22 @@ export default function ContactForm() {
           </div>
           <div className="flex flex-col">
             <label className="mb-1 text-sm lg:text-base">Mensaje</label>
-            <section className="relative">
-            <CharacterCounter characters={40} requiredCharacters={50} />
+            <section>
               <textarea
                 id="message"
                 name="message"
                 className="rounded-md p-2 min-h-[100px] dark:bg-white text-black w-full"
                 required
                 maxLength={500}
-                minLength={20}
+                minLength={50}
+                onChange={(e) => {
+                  setCountCharacters(Number(e.target.textLength));
+                }}
               ></textarea>
+              <CharacterCounter
+                characters={countCharacters}
+                requiredCharacters={500}
+              />
             </section>
           </div>
 
