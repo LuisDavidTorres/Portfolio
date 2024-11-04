@@ -22,11 +22,12 @@ export default function ContactForm() {
         method: "POST",
         body: formData,
       });
-      const data = await response.json();
 
       if (response.ok) {
         notify()
       }
+
+      const data = await response.json();
 
       if (data.message) {
         setResponseMessage(data.message);
@@ -51,6 +52,7 @@ export default function ContactForm() {
             <input
               id="name"
               name="name"
+              placeholder="Francisco Rojas"
               className="rounded-md p-2 dark:bg-white text-black"
               type="text"
               required
@@ -65,6 +67,7 @@ export default function ContactForm() {
             <input
               id="email"
               name="email"
+              placeholder="Francisco@dominio.cl"
               className="rounded-md p-2 dark:bg-white text-black"
               type="email"
               required

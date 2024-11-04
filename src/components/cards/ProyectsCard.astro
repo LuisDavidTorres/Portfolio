@@ -1,12 +1,18 @@
 ---
+import BadgeProjects from "../badges/BadgeProjects.astro";
+
 interface props {
   title: string;
   role: string;
   description: string;
   image: string;
+  technologies : {
+    id: number
+    name: string
+  }
 }
 
-const { title, role, description, image } = Astro.props;
+const { title, role, description, image, technologies } = Astro.props;
 ---
 
 <div class="mb-10 last:mb-0 flex flex-col">
@@ -21,5 +27,6 @@ const { title, role, description, image } = Astro.props;
       alt={image}
       class="relative z-0 rounded-lg transition-all duration-300 hover:scale-110 hover:cursor-pointer mt-4 sm:mt-0"
     />
+    <!-- {technologies.map((technology: any) => (<BadgeProjects>{technology.name}</BadgeProjects>))} -->
   </section>
 </div>
