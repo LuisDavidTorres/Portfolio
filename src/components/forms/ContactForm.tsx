@@ -3,13 +3,14 @@ import Location from "../icons/Location";
 import { useState } from "react";
 import LoadButton from "../buttons/LoadButon";
 import CharacterCounter from "../counters/CharacterCounter";
-import toast, { Toaster } from 'react-hot-toast';
+import toast, { Toaster } from "react-hot-toast";
 
 export default function ContactForm() {
   const [responseMessage, setResponseMessage] = useState<string>("");
   const [load, setLoad] = useState<boolean>(false);
   const [countCharacters, setCountCharacters] = useState<number>(0);
-  const notify = () => toast('Correo enviado');
+  const [showEmail, setShowEmail] = useState<boolean>(false);
+  const notify = () => toast("Correo enviado");
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -24,7 +25,7 @@ export default function ContactForm() {
       });
 
       if (response.ok) {
-        notify()
+        notify();
       }
 
       const data = await response.json();
@@ -43,7 +44,7 @@ export default function ContactForm() {
   return (
     <>
       <form className="flex flex-col lg:flex-row" onSubmit={handleSubmit}>
-      <Toaster />
+        <Toaster />
         <section className="flex flex-col p-5 w-full lg:w-1/2 space-y-5 bg-gray-500/10 rounded-t-lg lg:rounded-l-lg lg:rounded-tr-none">
           <p className="mb-2 font-bold text-xl lg:text-2xl">Contáctame</p>
 
@@ -111,9 +112,14 @@ export default function ContactForm() {
           </p>
           <div className="flex items-center">
             <Mail />
-            <p className="ml-1 text-sm lg:text-base mt-2">
-              Luisdaviddts@outlook.com
-            </p>
+              {showEmail ? (
+                <p className="ml-1 text-sm lg:text-base mt-2">
+                  Luisdaviddts@outlook.com
+                </p>
+              ) : (
+                <button type="button" onClick={() => {setShowEmail(true)}} className="text-white ml-1 mt-2 bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-2 py-0.5 text-center ">Ver Correo</button>
+
+              )}
           </div>
           <div className="flex items-center">
             <Location />
