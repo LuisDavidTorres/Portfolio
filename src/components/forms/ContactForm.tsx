@@ -114,7 +114,7 @@ export default function ContactForm() {
             <Mail />
               {showEmail ? (
                 <p className="ml-1 text-sm lg:text-base mt-2">
-                  Luisdaviddts@outlook.com
+                  Luisdavidtts@outlook.com
                 </p>
               ) : (
                 <button type="button" onClick={() => {setShowEmail(true)}} className="text-white ml-1 mt-2 bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-2 py-0.5 text-center ">Ver Correo</button>
