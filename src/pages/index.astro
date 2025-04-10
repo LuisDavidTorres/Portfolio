@@ -6,9 +6,12 @@ import Code from "../components/icons/Code.astro";
 import Gear from "../components/icons/Gear.astro";
 import ExperienceTimeline from "../components/timeline/ExperienceTimeline.astro";
 import SectionContainer from "../components/SectionContainer.astro";
+import SectionContainerPrincipal from "../components/SectionContainerPrincipal.astro";
 import ProyectsGrid from "../components/grids/ProyectsGrid.astro";
 import KnowledgeGrid from "../components/grids/KnowledgeGrid.astro";
 import ContactForm from "../components/forms/ContactForm";
+import ArrowDown from "../components/icons/ArrowDown";
+import DownloadCv from "../components/buttons/DownLoadCv"
 ---
 
 <Layout
@@ -18,25 +21,50 @@ import ContactForm from "../components/forms/ContactForm";
   <main
     class="bg-zinc-800 min-h-screen dark:text-white text-white p-8 sm:px-20"
   >
-    <SectionContainer>
-      <h1
-        class="font-bold text-4xl gap-x-2 flex flex-col sm:flex-row justify-between"
-      >
-        Hola, Soy Luis <div class="flex mt-2 sm:mt-0 items-center">
+    <SectionContainerPrincipal>
+      <div class="gap-x-2 flex flex-col sm:flex-row justify-between">
+        <h1
+          class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white"
+        >
+          Hola, Soy
+
+          <span
+            class="text-transparent bg-clip-text bg-gradient-to-r to-gray-600 from-white dark:to-zinc-800"
+          >
+            Luis
+          </span>
+        </h1>
+        <div class="flex mt-2 sm:mt-0 items-center">
           <Badge>Disponible para trabajar</Badge>
         </div>
-      </h1>
-      <h2 class="mt-10 opacity-80">
+      </div>
+
+      <p class="text-lg lg:text-xl text-gray-300 max-w-xl mt-10">
         Ingeniero Informático especializado en desarrollo Full Stack, con más de
-        un año de experiencia. Residente en La Serena, Chile. <span
-          class="text-green-200/90"
-          >Me especializo en crear sitios web únicos y en automatizar procesos
-          repetitivos</span
-        > para mejorar la eficiencia y productividad en diferentes áreas.
-      </h2>
-    </SectionContainer>
+        un año de experiencia. Residente en La Serena, Chile.
+      </p>
+      <p
+        class="text-zinc-200 leading-relaxed mt-5 text-sm lg:text-base w-full sm:w-2/3"
+      >
+        Me especializo en <span class="text-emerald-400"
+          >crear sitios web únicos</span
+        > y en{" "}
+        <span class="text-emerald-400">automatizar procesos repetitivos</span> para
+        mejorar la eficiencia y productividad en diferentes áreas.
+      </p>
+      <section class="mt-10 lg:mt-24">
+        <DownloadCv/>
+      </section>
+      <section
+        id="more"
+        class="absolute bottom-28 min-[471px]:bottom-0 lg:bottom-36 left-0 w-full flex flex-col justify-center items-center cursor-pointer text-gray-400 hover:text-white transition-colors"
+      >
+        <span class="mb-2">Descubre más</span>
+        <ArrowDown />
+      </section>
+    </SectionContainerPrincipal>
     <SectionContainer>
-      <div class="flex gap-x-1 items-start">
+      <div id="experience" class="flex gap-x-1 items-start">
         <Briefcase />
         <span
           class="bg-clip-text text-transparent bg-gradient-to-r from-green-300 to-green-100 text-xl font-bold"
@@ -75,4 +103,5 @@ import ContactForm from "../components/forms/ContactForm";
       <ContactForm client:load />
     </SectionContainer>
   </main>
+  <script src="../scripts/scrollToSection"></script>
 </Layout>
