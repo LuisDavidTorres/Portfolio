@@ -34,7 +34,9 @@ export default function ContactForm() {
         setResponseMessage(data.message);
       }
     } catch (error) {
-      console.error("Error al realizar la consulta a la API:", error);
+      if (error instanceof Error) {
+        console.error("Error al realizar la consulta a la API:", error);
+      }
     } finally {
       setLoad(false);
       (event.target as HTMLFormElement).reset();
@@ -45,7 +47,7 @@ export default function ContactForm() {
     <>
       <form className="flex flex-col lg:flex-row" onSubmit={handleSubmit}>
         <Toaster />
-        <section className="flex flex-col p-5 w-full lg:w-1/2 space-y-5 bg-gray-500/10 rounded-t-lg lg:rounded-l-lg lg:rounded-tr-none">
+        <section className="flex flex-col p-5 w-full lg:w-1/2 space-y-5 bg-gray-custom rounded-t-lg lg:rounded-l-lg lg:rounded-tr-none">
           <p className="mb-2 font-bold text-xl lg:text-2xl">Contáctame</p>
 
           <div className="flex flex-col">
@@ -97,7 +99,7 @@ export default function ContactForm() {
 
           <section className="mt-10">
             {!load ? (
-              <button className="bg-black/50 hover:bg-black text-white rounded-md p-2 w-full">
+              <button className="bg-black/70 hover:bg-black text-white rounded-md p-2 w-full">
                 Enviar mensaje
               </button>
             ) : (
@@ -112,14 +114,21 @@ export default function ContactForm() {
           </p>
           <div className="flex items-center">
             <Mail />
-              {showEmail ? (
-                <p className="ml-1 text-sm lg:text-base mt-2">
-                  Luisdavidtts@outlook.com
-                </p>
-              ) : (
-                <button type="button" onClick={() => {setShowEmail(true)}} className="text-white ml-1 mt-2 bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-2 py-0.5 text-center ">Ver Correo</button>
-
-              )}
+            {showEmail ? (
+              <p className="ml-1 text-sm lg:text-base mt-2">
+                Luisdavidtts@outlook.com
+              </p>
+            ) : (
+              <button
+                type="button"
+                onClick={() => {
+                  setShowEmail(true);
+                }}
+                className="text-white ml-1 mt-2 bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-2 py-0.5 text-center "
+              >
+                Ver Correo
+              </button>
+            )}
           </div>
           <div className="flex items-center">
             <Location />
