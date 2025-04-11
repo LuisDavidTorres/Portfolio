@@ -3,27 +3,33 @@ interface props {
   conpany: string;
   date: string;
   position: string;
-  title: string;
   description: string;
 }
 
 const { conpany, date, position, title, description } = Astro.props;
 ---
 
-<li class="mb-10 last:mb-0 ms-4">
-  <div
-    class="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"
-  >
-  </div>
-  <time class="text-xs font-normal leading-none text-white dark:text-white"
-    >{date}</time
-  >
-  <section class="mb-1 sm:flex items-center sm:space-x-2">
-    <p class="text-sm font-bold">{position}</p>
-    <p class="text-xs text-stone-300 italic">{conpany}</p>
-  </section>
+<div class="bg-gray-custom rounded-2xl p-5 mb-10 last:mb-0 ms-4 cursor-pointer">
+  <section class="space-y-1">
+    <div
+      class="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"
+    >
+    </div>
+    <time
+      class="text-sm font-semibold leading-none text-gray-ligh dark:text-white"
+      >{date}</time
+    >
 
-  <p class="mb-4 text-base font-normal text-white dark:text-white opacity-80">
-    {description}
-  </p>
-</li>
+    <p
+      class="text-lg font-semibold bg-gradient-to-r from-green-custom to-emerald-500 bg-clip-text text-transparent"
+    >
+      {position}
+    </p>
+    <p class="text-sm font-extrabold text-stone-300">{conpany}</p>
+  </section>
+  <section class="mt-4">
+    <p class="mb-4 text-base font-normal text-gray-300">
+      {description}
+    </p>
+  </section>
+</div>

@@ -4,39 +4,29 @@ import ExperiencieItem from "./ExperiencieItem.astro";
 const Experience = [
   {
     conpany: "Motrixel",
-    date: "diciembre 2024 - febrero 2025",
+    date: "Diciembre 2024 - Febrero 2025",
     position: "Analista de datos",
-    title: "Encargado de analizar datos",
     description:
       "Estandaricé la estructura de la base de datos para optimizar la gestión de inventarios y agilizar la toma de decisiones. Además, estuve a cargo de implementar visualizaciones dinámicas en Power BI para identificar tendencias de mercado y oportunidades de negocio.",
   },
   {
     conpany: "Rentaq",
-    date: "abril 2024 - octubre 2024",
+    date: "Abril 2024 - Octubre 2024",
     position: "Desarrollador web FullStack",
-    title: "Sitio web para cotizaciones de repuestos Automotrices",
     description:
       "Desarrollé un sitio web para conectar a compradores y vendedores de repuestos automotrices, utilizando React y Node.js. Implementé la pasarela de pago Transbank para facilitar transacciones seguras dentro del sitio. Este proyecto permitió establecer un nuevo modelo de negocio que busca ser más eficiente y accesible.",
   },
   {
     conpany: "RH Seguridad",
-    date: "noviembre 2023 - marzo 2024",
+    date: "Noviembre 2023 - Marzo 2024",
     position: "Desarrollador de software de escritorio",
-    title: "Sistema ETL automatizado para reportes",
     description:
       "Estuve a cargo de desarrollar de un proyecto utilizando Python y pandas, destinado a automatizar los reportes diarios de gestión de recursos humanos en la empresa RH Seguridad. Este proyecto reemplazó el proceso manual previo que utilizaba Excel, lo que resultó en una notable reducción del tiempo requerido para la generación y entrega de los reportes.",
   },
-  /*   {
-    conpany: "RH Seguridad",
-    date: "Enero 2023 - Marzo 2024",
-    position: "Desarrollador de aplicaciones móviles",
-    title: "Aplicación móvil para radiación solar",
-    description:
-      "Lleve a cabo el desarrollo de una aplicación móvil para dispositivos Android utilizando Android Studio, con el objetivo de proporcionar información sobre la radiación UV actual según la ubicación del usuario, haciendo uso de la API de MeteoChile.",
-  }, */
+
 ];
 ---
 
-<ol class="relative border-s border-gray-200 dark:border-gray-700 mt-4 ml-3">
+<div class="relative border-s border-gray-200 mt-4 ml-3">
   {Experience.map((experience) => <ExperiencieItem {...experience} />)}
-</ol>
+</div>
