@@ -1,0 +1,16 @@
+---
+interface Props {
+  technology: {
+    desing: {
+      class: string;
+    };
+  };
+}
+
+const { technology } = Astro.props;
+---
+
+<span
+  class=`${technology.desing.class} font-bold items-center rounded-xl px-2 py-1 text-xs ring-1 ring-inset select-none cursor-pointer`
+  ><slot /></span
+>

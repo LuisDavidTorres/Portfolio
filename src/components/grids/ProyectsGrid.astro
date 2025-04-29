@@ -1,10 +1,10 @@
 ---
 import ProyectsCard from "../cards/ProyectsCard.astro";
+import Next from "../icons/Next.astro";
 
 const Projects = [
   {
     title: "Busca Repuestos",
-    role: "Desarrollador Web Full-Stack",
     description:
       "Plataforma web diseñada para conectar a compradores y vendedores de repuestos automotrices, optimizando el proceso de compra y venta. Se desarrolló el frontend con React y el backend con Node.js, implementando la pasarela de pago Transbank y notificaciones por WhatsApp para garantizar transacciones seguras y una mejor comunicación.",
     image: "/images/project_busca_repuestos.webp",
@@ -12,16 +12,28 @@ const Projects = [
       {
         id: 1,
         name: "NextJS",
+        desing: {
+          class: "bg-black-500 ring-white",
+        },
       },
       {
         id: 2,
         name: "TypeScript",
+        desing: {
+          class: "bg-blue-500 ring-blue-400",
+        },
+      },
+      {
+        id: 3,
+        name: "Twilio",
+        desing: {
+          class: "bg-white text-red-600 ring-white",
+        },
       },
     ],
   },
   {
     title: "Sistema ETL Automatizado",
-    role: "Desarrollador de aplicaciones de escritorio",
     description:
       "Sistema diseñado para automatizar los reportes diarios de gestión de recursos humanos en RH Seguridad, utilizando Python y pandas. Este proyecto reemplazó el proceso manual en Excel, mejorando la eficiencia y reduciendo el tiempo de generación y entrega de reportes en un 50%.",
     image: "/images/project_etl.webp",
@@ -29,16 +41,28 @@ const Projects = [
       {
         id: 1,
         name: "Python",
+        desing: {
+          class: "bg-yellow-300 ring-yellow-200",
+        },
       },
       {
         id: 2,
+        name: "Pandas",
+        desing: {
+          class: "bg-white text-black/50 ring-white",
+        },
+      },
+      {
+        id: 3,
         name: "AWS Lambda",
+        desing: {
+          class: "bg-orange-500 ring-orange-300",
+        },
       },
     ],
   },
   {
     title: "Aplicación móvil para radiación solar",
-    role: "Desarrollador de apps móviles",
     description:
       "Aplicación móvil nativa en Android Studio que proporciona información en tiempo real sobre la radiación UV según la ubicación del usuario. Utilizando la API de MeteoChile, la aplicación permite a los usuarios tomar decisiones informadas sobre su exposición solar, promoviendo la salud y la seguridad.",
     image: "/images/radiationUV.png",
@@ -46,10 +70,23 @@ const Projects = [
       {
         id: 1,
         name: "Android Studio",
+        desing: {
+          class: "bg-green-500 ring-green-300",
+        },
       },
       {
         id: 2,
         name: "Java",
+        desing: {
+          class: "bg-orange-400 ring-orange-200",
+        },
+      },
+      {
+        id: 3,
+        name: "Api MeteoChile",
+        desing: {
+          class: "bg-blue-900",
+        },
       },
     ],
   },
