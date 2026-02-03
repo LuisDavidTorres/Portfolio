@@ -122,6 +122,8 @@ const Projects = [
 ];
 ---
 
-<div class="mt-4 mb-6">
-  {Projects.map((project) => <ProyectsCard {...project} />)}
+<div class="mt-16">
+    {Projects.map((project, index) => (
+      <ProyectsCard {...project} index={index} />
+  ))}
 </div>

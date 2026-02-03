@@ -5,6 +5,7 @@ interface Props {
   title: string;
   description: string;
   image: string;
+  index?: number;
   technologies: {
     id: number;
     name: string;
@@ -14,20 +15,23 @@ interface Props {
   }[]; 
 }
 
-const { title, description, image, technologies } = Astro.props;
-
+const { title, description, image, technologies, index = 0 } = Astro.props;
+const isEven = index % 2 === 0;
 ---
 
-<div class="mb-24 last:mb-0 flex flex-col">
-  <section>
-    <h1 class="font-bold">{title}</h1>
-  </section>
-  <section
-    class="flex flex-col md:flex-row mt-5 items-center md:items-start md:space-x-6"
-  >
-    <section>
-      <p class="text-gray-300 opacity-90 mb-4">{description}</p>
-      <div class="space-x-2">
+<article class="group mb-20 last:mb-0 w-full">
+  <div class={`flex flex-col ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-12 items-center`}>
+    <!-- Content -->
+    <div class="flex-1 space-y-6">
+      <h3 class="text-2xl md:text-3xl font-semibold text-white tracking-tight">
+        {title}
+      </h3>
+      
+      <p class="text-gray-400 leading-relaxed text-base md:text-lg font-light">
+        {description}
+      </p>
+      
+      <div class="flex flex-wrap gap-2">
         {
           technologies.map((technology: any) => (
             <BadgesTechnologies technology={technology}>
@@ -36,14 +40,19 @@ const { title, description, image, technologies } = Astro.props;
           ))
         }
       </div>
-    </section>
+    </div>
 
-    <img
-      src={image}
-      width="350px"
-      height="200px"
-      alt={image}
-      class="relative z-0 rounded-lg transition-all duration-300 hover:scale-110 hover:cursor-pointer mt-4 sm:mt-0"
-    />
-  </section>
-</div>
+    <!-- Image -->
+    <div class="w-full lg:w-auto lg:min-w-[380px] lg:max-w-[480px]">
+      <div class="relative overflow-hidden rounded-2xl bg-zinc-900/30 ring-1 ring-white/5 transition-all duration-300 hover:ring-white/10 hover:shadow-2xl hover:shadow-green-custom/5">
+        <img
+          src={image}
+          width="480"
+          height="300"
+          alt={title}
+          class="w-full h-auto object-cover"
+        />
+      </div>
+    </div>
+  </div>
+</article>

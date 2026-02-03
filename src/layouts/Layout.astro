@@ -12,13 +12,16 @@ const { title, description } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="es">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="description" content={description} />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 		<title>{title}</title>
 	</head>
 	<body>
@@ -41,21 +44,77 @@ const { title, description } = Astro.props;
 			white 60%
 		);
 	}
+	
 	html {
-		font-family: 'Onest Variable', system-ui, sans-serif;
+		font-family: 'Inter', 'Onest Variable', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 		background: #010101;
 		background-size: 224px;
 		color-scheme: dark light;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+		text-rendering: optimizeLegibility;
+		scroll-behavior: smooth;
 	}
-	code {
-		font-family:
-			Menlo,
-			Monaco,
-			Lucida Console,
-			Liberation Mono,
-			DejaVu Sans Mono,
-			Bitstream Vera Sans Mono,
-			Courier New,
-			monospace;
+	
+	body {
+		font-size: 16px;
+		line-height: 1.6;
+		letter-spacing: -0.011em;
+		font-weight: 400;
+	}
+	
+	h1, h2, h3, h4, h5, h6 {
+		font-weight: 700;
+		line-height: 1.15;
+		letter-spacing: -0.03em;
+	}
+	
+	h1 {
+		font-size: clamp(2.5rem, 5vw, 4.5rem);
+		font-weight: 800;
+		letter-spacing: -0.045em;
+	}
+	
+	h2 {
+		font-size: clamp(2rem, 4vw, 3.75rem);
+		font-weight: 700;
+		letter-spacing: -0.035em;
+	}
+	
+	h3 {
+		font-size: clamp(1.5rem, 3vw, 2.25rem);
+		font-weight: 600;
+		letter-spacing: -0.025em;
+	}
+	
+	p {
+		line-height: 1.7;
+		letter-spacing: -0.011em;
+		font-weight: 400;
+	}
+	
+	strong, b {
+		font-weight: 600;
+	}
+	
+	code, pre {
+		font-family: 'JetBrains Mono', 'Menlo', 'Monaco', monospace;
+		font-weight: 400;
+	}
+	
+	@keyframes fade-in-up {
+		from {
+			opacity: 0;
+			transform: translateY(20px);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+	
+	.animate-fade-in-up {
+		animation: fade-in-up 0.6s ease-out forwards;
+		opacity: 0;
 	}
 </style>

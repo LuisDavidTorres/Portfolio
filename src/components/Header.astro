@@ -2,13 +2,18 @@
 import GitHub from "./icons/GitHub.astro";
 import LinkedIn from "./icons/LinkedIn.astro";
 import SocialPill from "./icons/SocialPill.astro";
+import NavigationMenu from "../features/navigation/NavigationMenu.astro";
+import HeaderWrapper from "./HeaderWrapper";
 ---
 
-<header
-  class="py-5 mx-auto w-full flex justify-between sticky top-0 z-10 backdrop-blur-sm opacity-90 xl:px-64 p-8 sm:px-20"
->
-  <h1 class="font-bold text-white 2xl:text-xl">{"<DAVIIC/>"}</h1>
-  <nav class="flex gap-x-4 items-center dark:text-white text-white">
+<HeaderWrapper client:load>
+  <h1 class="font-bold text-white text-xl sm:text-2xl tracking-tight justify-self-start">{"<DAVIIC/>"}</h1>
+  
+  <div class="justify-self-center">
+    <NavigationMenu />
+  </div>
+  
+  <nav class="flex gap-x-4 items-center justify-self-end dark:text-white text-white">
     <SocialPill href="https://github.com/LuisDavidTorres">
       <GitHub />
     </SocialPill>
@@ -17,4 +22,4 @@ import SocialPill from "./icons/SocialPill.astro";
       <LinkedIn />
     </SocialPill>
   </nav>
-</header>
+</HeaderWrapper>

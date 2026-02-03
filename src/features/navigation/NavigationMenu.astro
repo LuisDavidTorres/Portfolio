@@ -1,0 +1,11 @@
+---
+import { NAV_ITEMS } from "./constants/navItems";
+import DesktopNav from "./components/DesktopNav";
+import MobileMenu from "./components/MobileMenu";
+---
+
+<!-- Desktop Navigation -->
+<DesktopNav items={NAV_ITEMS} client:load />
+
+<!-- Mobile Menu -->
+<MobileMenu items={NAV_ITEMS} client:load />

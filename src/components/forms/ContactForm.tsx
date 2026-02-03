@@ -48,7 +48,7 @@ export default function ContactForm() {
       <form className="flex flex-col lg:flex-row" onSubmit={handleSubmit}>
         <Toaster />
         <section className="flex flex-col p-5 w-full lg:w-1/2 space-y-5 bg-gray-custom rounded-t-lg lg:rounded-l-lg lg:rounded-tr-none">
-          <p className="mb-2 font-bold text-xl lg:text-2xl">Contáctame</p>
+          <p id="contact" className="mb-2 font-bold text-xl lg:text-2xl scroll-mt-24">Contáctame</p>
 
           <div className="flex flex-col">
             <label className="mb-1 text-sm lg:text-base">Nombre</label>
