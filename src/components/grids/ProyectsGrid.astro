@@ -1,8 +1,36 @@
 ---
 import ProyectsCard from "../cards/ProyectsCard.astro";
-import Next from "../icons/Next.astro";
 
 const Projects = [
+  {
+    title: "S&G Propiedades",
+    description:
+      "Landing page para S&G Propiedades, enfocada en la presentación de servicios inmobiliarios. Desarrollada con Astro y Tailwind CSS",
+    image: "/images/sygpropiedades.avif",
+    technologies: [
+      {
+        id: 10,
+        name: "Astro",
+        desing: {
+          class: "bg-white text-black/50 ring-white",
+        },
+      },
+      {
+        id: 20,
+        name: "TypeScript",
+        desing: {
+          class: "bg-blue-500 ring-blue-400",
+        },
+      },
+      {
+        id: 30,
+        name: "Tailwind CSS",
+        desing: {
+          class: "bg-sky-500 ring-sky-400",
+        },
+      },
+    ],
+  },
   {
     title: "Duarte y Leiva",
     description:
@@ -123,7 +151,9 @@ const Projects = [
 ---
 
 <div class="mt-16">
-    {Projects.map((project, index) => (
+  {
+    Projects.map((project, index) => (
       <ProyectsCard {...project} index={index} />
-  ))}
+    ))
+  }
 </div>
