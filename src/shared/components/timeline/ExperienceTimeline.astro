@@ -1,0 +1,28 @@
+---
+import ExperiencieItem from "./ExperiencieItem.astro";
+
+const Experience = [
+  {
+    conpany: "Motrixel",
+    date: "Dic 2024 - Feb 2025",
+    position: "Analista de Datos",
+    description: "Diseñé pipelines de datos desde cero porque la empresa tomaba decisiones con información dispersa. Elegí Power BI sobre Tableau por costos y flexibilidad. Implementé modelos tabulares que redujeron el tiempo de análisis de días a minutos, permitiendo decisiones data-driven en tiempo real.",
+  },
+  {
+    conpany: "Rentaq",
+    date: "Abr 2024 - Oct 2024",
+    position: "Full Stack Developer",
+    description: "Construí una plataforma de e-commerce para repuestos porque el cliente necesitaba digitalizar un modelo de negocio tradicional. El desafío: integrar Transbank con latencia variable. Implementé colas de mensajes para pagos asíncronos, aumentando la tasa de conversión 35% y creando una base escalable para crecimiento futuro.",
+  },
+  {
+    conpany: "RH Seguridad",
+    date: "Nov 2023 - Mar 2024",
+    position: "Software Developer",
+    description: "Automatización de reportes de RRHH porque un proceso manual consumía 8 horas semanales de un empleado calificado. Elegí Python/Pandas por su ecosistema de data processing. El resultado: eliminé el trabajo repetitivo, reduje errores y liberé tiempo para tareas de mayor valor. Trade-off: inversión inicial vs. ROI de 6 meses.",
+  },
+];
+---
+
+<div class="space-y-12">
+  {Experience.map((exp) => <ExperiencieItem {...exp} />)}
+</div>
