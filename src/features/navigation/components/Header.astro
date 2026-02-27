@@ -5,17 +5,18 @@ import SocialPill from "../../../shared/components/SocialPill.astro";
 import NavigationMenu from "../NavigationMenu.astro";
 import HeaderWrapper from "./HeaderWrapper";
 import ThemeToggle from "../../../shared/components/ThemeToggle";
+import MobileNav from "./MobileNav";
+import { NAV_ITEMS } from "../constants/navItems";
 ---
 
 <HeaderWrapper client:load>
-  <a href="/" class="font-semibold text-lg text-neutral-900 dark:text-white hover:opacity-60 transition-opacity">
+  <a href="/" class="font-semibold text-lg text-neutral-900 dark:text-slate-100 hover:opacity-60 transition-opacity">
     David Phillips
   </a>
   
   <NavigationMenu />
   
   <div class="flex items-center gap-3">
-    <ThemeToggle client:load />
     <div class="hidden sm:flex items-center gap-1">
       <SocialPill href="https://github.com/LuisDavidTorres">
         <GitHub />
@@ -24,5 +25,7 @@ import ThemeToggle from "../../../shared/components/ThemeToggle";
         <LinkedIn />
       </SocialPill>
     </div>
+    <ThemeToggle client:load />
+    <MobileNav items={NAV_ITEMS} client:load />
   </div>
 </HeaderWrapper>

@@ -55,8 +55,8 @@ export default function DesktopNav({ items }: DesktopNavProps) {
           href={item.url}
           className={`font-medium transition-colors duration-200 ${
             activeSection === item.url
-              ? "text-neutral-900 dark:text-white"
-              : "text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white"
+              ? "text-neutral-900 dark:text-slate-100"
+              : "text-neutral-600 dark:text-slate-300 hover:text-neutral-900 dark:hover:text-slate-50"
           }`}
         >
           {item.title}

@@ -1,3 +1,30 @@
-<section class="px-6 py-24 sm:py-32 max-w-5xl mx-auto">
+<section class="px-6 py-24 sm:py-32 max-w-5xl mx-auto scroll-reveal">
   <slot />
 </section>
+
+<style>
+  .scroll-reveal {
+    opacity: 0;
+    transform: translateY(80px);
+    transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .scroll-reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+
+<script>
+  const sections = document.querySelectorAll('.scroll-reveal');
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+        }
+      });
+    },
+    { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+  );
+  sections.forEach((section) => observer.observe(section));
+</script>

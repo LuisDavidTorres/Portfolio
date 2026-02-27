@@ -1,0 +1,103 @@
+---
+---
+
+<div id="parallax-bg" class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+  <!-- Capa base -->
+  <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-neutral-50/50 dark:to-slate-950/80"></div>
+  
+  <!-- Mouse-following aurora spotlight -->
+  <div id="mouse-aurora" class="absolute w-[500px] h-[500px] sm:w-[700px] sm:h-[700px] rounded-full opacity-0 transition-opacity duration-700" style="background: radial-gradient(circle, rgba(99,102,241,0.15) 0%, rgba(139,92,246,0.08) 40%, transparent 70%); transform: translate(-50%, -50%); filter: blur(80px);"></div>
+
+  <!-- Hero Glow -->
+  <div data-speed="0.15" data-drift="0.02" class="parallax-blob absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[500px] sm:w-[800px] sm:h-[600px] bg-blue-500/10 dark:bg-blue-400/15 rounded-full blur-[120px] sm:blur-[150px]"></div>
+  
+  <!-- Halos secundarios -->
+  <div data-speed="0.25" data-drift="-0.05" class="parallax-blob absolute top-[30vh] left-[-10vw] w-[400px] h-[400px] sm:w-[500px] sm:h-[500px] bg-indigo-500/8 dark:bg-indigo-400/12 rounded-full blur-[100px] sm:blur-[120px]"></div>
+  <div data-speed="-0.2" data-drift="0.04" class="parallax-blob absolute top-[60vh] right-[-10vw] w-[400px] h-[400px] sm:w-[600px] sm:h-[600px] bg-purple-500/5 dark:bg-purple-500/10 rounded-full blur-[100px] sm:blur-[120px]"></div>
+  <div data-speed="0.18" data-drift="-0.03" class="parallax-blob absolute top-[120vh] left-[20vw] w-[400px] h-[400px] sm:w-[500px] sm:h-[500px] bg-blue-500/5 dark:bg-blue-400/8 rounded-full blur-[100px] sm:blur-[120px]"></div>
+</div>
+
+<script>
+  // === Parallax on scroll ===
+  const blobs = document.querySelectorAll<HTMLElement>('.parallax-blob');
+  let scrollTicking = false;
+
+  function updateParallax() {
+    const scrollY = window.scrollY;
+    blobs.forEach((blob) => {
+      const speed = parseFloat(blob.dataset.speed || '0');
+      const drift = parseFloat(blob.dataset.drift || '0');
+      blob.style.transform = `translate(${scrollY * drift}px, ${scrollY * speed}px)`;
+    });
+    scrollTicking = false;
+  }
+
+  window.addEventListener('scroll', () => {
+    if (!scrollTicking) {
+      requestAnimationFrame(updateParallax);
+      scrollTicking = true;
+    }
+  }, { passive: true });
+
+  // === Mouse-following aurora ===
+  const aurora = document.getElementById('mouse-aurora') as HTMLElement | null;
+  let mouseX = 0, mouseY = 0;
+  let currentX = 0, currentY = 0;
+  let auroraVisible = false;
+  let animating = false;
+
+  document.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+
+    if (!auroraVisible && aurora) {
+      aurora.style.opacity = '1';
+      auroraVisible = true;
+    }
+
+    if (!animating) {
+      animating = true;
+      animateAurora();
+    }
+  });
+
+  document.addEventListener('mouseleave', () => {
+    if (aurora) {
+      aurora.style.opacity = '0';
+      auroraVisible = false;
+    }
+  });
+
+  function animateAurora() {
+    // Smooth lerp for fluid movement
+    currentX += (mouseX - currentX) * 0.08;
+    currentY += (mouseY - currentY) * 0.08;
+
+    if (aurora) {
+      aurora.style.left = `${currentX}px`;
+      aurora.style.top = `${currentY}px`;
+    }
+
+    // Keep animating while visible
+    if (auroraVisible || Math.abs(mouseX - currentX) > 0.5) {
+      requestAnimationFrame(animateAurora);
+    } else {
+      animating = false;
+    }
+  }
+
+  // Dark mode: make aurora brighter
+  const updateAuroraTheme = () => {
+    if (!aurora) return;
+    const isDark = document.documentElement.classList.contains('dark');
+    if (isDark) {
+      aurora.style.background = 'radial-gradient(circle, rgba(99,102,241,0.20) 0%, rgba(139,92,246,0.12) 40%, transparent 70%)';
+    } else {
+      aurora.style.background = 'radial-gradient(circle, rgba(99,102,241,0.12) 0%, rgba(139,92,246,0.06) 40%, transparent 70%)';
+    }
+  };
+
+  updateAuroraTheme();
+  const themeObserver = new MutationObserver(updateAuroraTheme);
+  themeObserver.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+</script>

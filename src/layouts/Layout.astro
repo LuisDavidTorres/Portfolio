@@ -1,6 +1,7 @@
 ---
 import Header from '../features/navigation/components/Header.astro';
 import Footer from "../shared/components/Footer.astro";
+import Background from "../shared/components/Background.astro";
 
 interface Props {
 	title: string;
@@ -28,9 +29,10 @@ const { title, description } = Astro.props;
 		</script>
 		<title>{title}</title>
 	</head>
-	<body class="bg-white dark:bg-black text-neutral-900 dark:text-white antialiased">
+    <body class="bg-white text-neutral-900 dark:text-slate-100 antialiased dark:bg-slate-950 relative overflow-x-hidden">
+		<Background />
 		<Header/>
-		<main class="min-h-screen">
+		<main class="min-h-screen relative z-10 w-full">
 		   <slot />
 		</main>
 		<Footer/>
