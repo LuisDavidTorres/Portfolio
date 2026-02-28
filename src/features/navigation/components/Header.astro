@@ -3,13 +3,12 @@ import GitHub from "../../../shared/components/icons/GitHub.astro";
 import LinkedIn from "../../../shared/components/icons/LinkedIn.astro";
 import SocialPill from "../../../shared/components/SocialPill.astro";
 import NavigationMenu from "../NavigationMenu.astro";
-import HeaderWrapper from "./HeaderWrapper";
-import ThemeToggle from "../../../shared/components/ThemeToggle";
-import MobileNav from "./MobileNav";
-import { NAV_ITEMS } from "../constants/navItems";
+import HeaderWrapper from "./HeaderWrapper.astro";
+import ThemeToggle from "../../../shared/components/ThemeToggle.astro";
+import MobileNav from "./MobileNav.astro";
 ---
 
-<HeaderWrapper client:load>
+<HeaderWrapper>
   <a href="/" class="font-semibold text-lg text-neutral-900 dark:text-slate-100 hover:opacity-60 transition-opacity">
     David Phillips
   </a>
@@ -25,7 +24,7 @@ import { NAV_ITEMS } from "../constants/navItems";
         <LinkedIn />
       </SocialPill>
     </div>
-    <ThemeToggle client:load />
-    <MobileNav items={NAV_ITEMS} client:idle />
+    <ThemeToggle />
+    <MobileNav />
   </div>
 </HeaderWrapper>

@@ -1,0 +1,140 @@
+---
+import { NAV_ITEMS } from "../constants/navItems";
+---
+
+<div class="md:hidden flex items-center" id="mobile-nav-container">
+  <!-- Hamburger Button -->
+  <button
+    id="mobile-menu-btn"
+    class="relative z-[60] p-2 text-neutral-600 dark:text-slate-300 hover:text-neutral-900 dark:hover:text-white transition-colors focus:outline-none"
+    aria-label="Toggle menu"
+  >
+    <div class="w-6 flex flex-col items-end gap-1.5">
+      <span id="bar1" class="h-0.5 bg-current transition-all duration-300 ease-out w-6"></span>
+      <span id="bar2" class="h-0.5 bg-current transition-all duration-300 ease-out w-4"></span>
+      <span id="bar3" class="h-0.5 bg-current transition-all duration-300 ease-out w-5"></span>
+    </div>
+  </button>
+
+  <!-- Fullscreen Overlay -->
+  <div
+    id="mobile-overlay"
+    class="fixed top-0 left-0 right-0 bottom-0 z-[50] bg-white/95 dark:bg-slate-950/95 backdrop-blur-xl transition-all duration-500 opacity-0 pointer-events-none"
+    style="height: 100dvh;"
+  >
+    <nav class="flex flex-col items-center justify-center gap-8 w-full h-full px-6">
+      {NAV_ITEMS.map((item, index) => (
+        <a
+          href={item.url}
+          data-nav-mobile
+          data-delay={index * 100 + 100}
+          class="mobile-nav-link text-2xl font-medium transition-all duration-500 translate-y-4 opacity-0 text-neutral-600 dark:text-slate-300 hover:text-neutral-900 dark:hover:text-slate-50"
+        >
+          {item.title}
+        </a>
+      ))}
+    </nav>
+  </div>
+</div>
+
+<script>
+  const btn = document.getElementById('mobile-menu-btn');
+  const overlay = document.getElementById('mobile-overlay');
+  const bar1 = document.getElementById('bar1');
+  const bar2 = document.getElementById('bar2');
+  const bar3 = document.getElementById('bar3');
+  const links = document.querySelectorAll('[data-nav-mobile]');
+
+  let isOpen = false;
+
+  function setOpen(open: boolean) {
+    isOpen = open;
+
+    if (overlay) {
+      overlay.classList.toggle('opacity-100', open);
+      overlay.classList.toggle('pointer-events-auto', open);
+      overlay.classList.toggle('opacity-0', !open);
+      overlay.classList.toggle('pointer-events-none', !open);
+    }
+
+    // Hamburger animation
+    if (bar1 && bar2 && bar3) {
+      bar1.classList.toggle('rotate-45', open);
+      bar1.classList.toggle('translate-y-2', open);
+      bar2.classList.toggle('w-0', open);
+      bar2.classList.toggle('opacity-0', open);
+      bar2.classList.toggle('w-4', !open);
+      bar3.classList.toggle('-rotate-45', open);
+      bar3.classList.toggle('-translate-y-2', open);
+      bar3.classList.toggle('w-6', open);
+      bar3.classList.toggle('w-5', !open);
+    }
+
+    // Links animation
+    links.forEach((link) => {
+      const el = link as HTMLElement;
+      el.style.transitionDelay = open ? `${el.dataset.delay}ms` : '0ms';
+      el.classList.toggle('translate-y-0', open);
+      el.classList.toggle('opacity-100', open);
+      el.classList.toggle('translate-y-4', !open);
+      el.classList.toggle('opacity-0', !open);
+    });
+
+    // Body overflow
+    document.body.style.overflow = open ? 'hidden' : '';
+  }
+
+  btn?.addEventListener('click', () => setOpen(!isOpen));
+
+  links.forEach((link) => {
+    link.addEventListener('click', () => setOpen(false));
+  });
+
+  // Active section tracking
+  const navItems = Array.from(links) as HTMLAnchorElement[];
+  
+  function updateActiveSection() {
+    const scrollPos = window.scrollY;
+    const winH = window.innerHeight;
+    const docH = document.documentElement.scrollHeight;
+
+    if (scrollPos < 400) {
+      navItems.forEach((l) => {
+        l.classList.remove('text-indigo-600', 'dark:text-indigo-400');
+        l.classList.add('text-neutral-600', 'dark:text-slate-300');
+      });
+      return;
+    }
+
+    let activeUrl = '';
+    if (scrollPos + winH >= docH - 200) {
+      activeUrl = navItems[navItems.length - 1]?.getAttribute('href') || '';
+    } else {
+      for (const link of navItems) {
+        const href = link.getAttribute('href') || '';
+        const section = document.querySelector(href);
+        if (section) {
+          const rect = section.getBoundingClientRect();
+          if (rect.top <= 200 && rect.bottom > 100) {
+            activeUrl = href;
+            break;
+          }
+        }
+      }
+    }
+
+    navItems.forEach((l) => {
+      const href = l.getAttribute('href') || '';
+      if (href === activeUrl) {
+        l.classList.add('text-indigo-600', 'dark:text-indigo-400');
+        l.classList.remove('text-neutral-600', 'dark:text-slate-300');
+      } else {
+        l.classList.remove('text-indigo-600', 'dark:text-indigo-400');
+        l.classList.add('text-neutral-600', 'dark:text-slate-300');
+      }
+    });
+  }
+
+  updateActiveSection();
+  window.addEventListener('scroll', updateActiveSection, { passive: true });
+</script>

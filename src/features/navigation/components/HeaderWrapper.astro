@@ -1,0 +1,30 @@
+---
+---
+
+<header
+  id="main-header"
+  class="fixed top-0 left-0 right-0 z-[60] transition-all duration-300 bg-transparent"
+>
+  <div class="max-w-5xl mx-auto px-6">
+    <div class="flex items-center justify-between h-12">
+      <slot />
+    </div>
+  </div>
+</header>
+
+<script>
+  const header = document.getElementById('main-header');
+  if (header) {
+    const update = () => {
+      if (window.scrollY > 50) {
+        header.classList.add('bg-white/80', 'dark:bg-slate-900/80', 'backdrop-blur-md');
+        header.classList.remove('bg-transparent');
+      } else {
+        header.classList.remove('bg-white/80', 'dark:bg-slate-900/80', 'backdrop-blur-md');
+        header.classList.add('bg-transparent');
+      }
+    };
+    update();
+    window.addEventListener('scroll', update, { passive: true });
+  }
+</script>
