@@ -24,8 +24,8 @@ const { title, description, image, technologies, index = 0 } = Astro.props;
     <Image
       src={image}
       alt={title}
-      widths={[360, 540, 720]}
-      sizes="(max-width: 768px) 100vw, 50vw"
+      width={720}
+      height={405}
       format="avif"
       quality={75}
       class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
