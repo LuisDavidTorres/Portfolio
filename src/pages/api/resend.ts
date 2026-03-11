@@ -19,7 +19,7 @@ export const POST: APIRoute = async ({ request }) => {
   }
 
   try {
-    const { data, error } = await resend.emails.send({
+    const { error } = await resend.emails.send({
       from: "Acme <onboarding@resend.dev>",
       to: ["luisdavidtts@outlook.com"],
       subject: "Contacto mediante portfolio",
