@@ -5,7 +5,6 @@ import Aws from "../../../shared/components/icons/Aws.astro";
 import CSharp from "../../../shared/components/icons/CSharp.astro";
 import Next from "../../../shared/components/icons/Next.astro";
 import Node from "../../../shared/components/icons/Node.astro";
-import Php from "../../../shared/components/icons/Php.astro";
 import PostgreSql from "../../../shared/components/icons/PostgreSql.astro";
 import Astr from "../../../shared/components/icons/Astr.astro";
 import AndroidStudio from "../../../shared/components/icons/AndroidStudio.astro";
@@ -24,7 +23,6 @@ export const SKILLS = [
   // Backend
   { name: "Node.js", category: "backend", icon: Node },
   { name: "Python", category: "backend", icon: Python },
-  { name: "PHP", category: "backend", icon: Php },
   { name: "Java", category: "backend", icon: Java },
   { name: "C#", category: "backend", icon: CSharp },
   { name: "PostgreSQL", category: "backend", icon: PostgreSql },

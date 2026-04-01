@@ -3,23 +3,26 @@ import ProyectsCard from "../../../features/projects/components/ProyectsCard.ast
 
 import imgEtl from "../../../assets/images/project_etl.webp";
 import imgSyg from "../../../assets/images/sygpropiedades.avif";
+import imgDph from "../../../assets/images/dphabogados.avif";
 import imgDuarte from "../../../assets/images/cecilia-duarte.avif";
 import imgUV from "../../../assets/images/radiationUV.webp";
 
 const Projects = [
-/*   {
-    title: "Busca Repuestos",
-    description: "Plataforma de e-commerce para repuestos automotrices. El desafío era integrar múltiples proveedores con inventarios desatualizados. Elegí una arquitectura orientada a eventos para actualizar stock en tiempo real sin bloquear al usuario. Implementé cache en Redis para reducir latencia de API en un 70%.",
-    image: imgBuscaRepuestos,
+  {
+    title: "DPH Abogados",
+    description:
+      "Landing page para despacho legal. El reto era transmitir profesionalismo sin cargar el sitio. Implementé forms as a service con validación en cliente y servidor. Resultado: 40% increase en consultas.",
+    image: imgDph,
     technologies: [
-      { id: 1, name: "Next.js", desing: { class: "" } },
-      { id: 2, name: "Node.js", desing: { class: "" } },
-      { id: 3, name: "PostgreSQL", desing: { class: "" } },
+      { id: 1, name: "Astro", desing: { class: "" } },
+      { id: 2, name: "TypeScript", desing: { class: "" } },
+      { id: 3, name: "Tailwind", desing: { class: "" } },
     ],
-  }, */
+  },
   {
     title: "Sistema ETL Automatizado",
-    description: "Pipeline de datos para reportes de RRHH. El problema: procesos manuales con 8 horas/semana y errores recurrentes. Diseñé una arquitectura serverless con AWS Lambda que se ejecuta solo cuando hay datos nuevos, optimizando costos. Reduje el tiempo de generación de 8 horas a 3 minutos.",
+    description:
+      "Pipeline de datos para reportes de RRHH. El problema: procesos manuales con 8 horas/semana y errores recurrentes. Diseñé una arquitectura serverless con AWS Lambda que se ejecuta solo cuando hay datos nuevos, optimizando costos. Reduje el tiempo de generación de 8 horas a 3 minutos.",
     image: imgEtl,
     technologies: [
       { id: 1, name: "Python", desing: { class: "" } },
@@ -28,7 +31,8 @@ const Projects = [
   },
   {
     title: "S&G Propiedades",
-    description: "Landing page para inmobiliaria. El negocio necesitaba generar leads cualificados rápido. Prioricé Core Web Vitals sobre diseño visual. Elegí Astro por su estrategia 'islands' para mínimo JavaScript, resultando en Lighthouse score de 98 y 50% más leads.",
+    description:
+      "Landing page para inmobiliaria. El negocio necesitaba generar leads cualificados rápido. Prioricé Core Web Vitals sobre diseño visual. Elegí Astro por su estrategia 'islands' para mínimo JavaScript, resultando en Lighthouse score de 98 y 50% más leads.",
     image: imgSyg,
     technologies: [
       { id: 1, name: "Astro", desing: { class: "" } },
@@ -38,7 +42,8 @@ const Projects = [
   },
   {
     title: "Abogada Cecilia Duarte",
-    description: "Web para despacho legal. El reto era transmitir profesionalismo sin cargar el sitio. Implementé forms as a service con validación en cliente y servidor. Resultado: 40% increase en consultas.",
+    description:
+      "Web para despacho legal. El reto era transmitir profesionalismo sin cargar el sitio. Implementé forms as a service con validación en cliente y servidor. Resultado: 40% increase en consultas.",
     image: imgDuarte,
     technologies: [
       { id: 1, name: "Astro", desing: { class: "" } },
@@ -48,7 +53,8 @@ const Projects = [
   },
   {
     title: "UV Tracker App",
-    description: "App Android para radiación UV. Integré API de MeteoChile con caching inteligente para funcionar offline. Implementé polling adaptativo que extiende autonomía un 60%.",
+    description:
+      "App Android para radiación UV. Integré API de MeteoChile con caching inteligente para funcionar offline. Implementé polling adaptativo que extiende autonomía un 60%.",
     image: imgUV,
     technologies: [
       { id: 1, name: "Android", desing: { class: "" } },
@@ -59,7 +65,9 @@ const Projects = [
 ---
 
 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-  {Projects.map((project, index) => (
-    <ProyectsCard {...project} index={index} />
-  ))}
+  {
+    Projects.map((project, index) => (
+      <ProyectsCard {...project} index={index} />
+    ))
+  }
 </div>
