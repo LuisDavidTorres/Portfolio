@@ -9,7 +9,7 @@ import PostgreSql from "../../../shared/components/icons/PostgreSql.astro";
 import Astr from "../../../shared/components/icons/Astr.astro";
 import AndroidStudio from "../../../shared/components/icons/AndroidStudio.astro";
 import Tailwind from "../../../shared/components/icons/Tailwind.astro";
-import GitHub from "../../../shared/components/icons/GitHub.astro";
+import Git from "../../../shared/components/icons/Git.astro";
 import React from "../../../shared/components/icons/React.astro";
 
 export const SKILLS = [
@@ -30,7 +30,7 @@ export const SKILLS = [
   // Others
   { name: "AWS", category: "other", icon: Aws },
   { name: "Android Studio", category: "other", icon: AndroidStudio },
-  { name: "GitHub", category: "other", icon: GitHub },
+  { name: "Git", category: "other", icon: Git },
 ] as const;
 
 export type SkillCategory = "frontend" | "backend" | "other";

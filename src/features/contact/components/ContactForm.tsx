@@ -40,7 +40,7 @@ export default function ContactForm() {
       <div>
         <form onSubmit={handleSubmit} className="space-y-6">
           <Toaster />
-          
+
           <div className="grid sm:grid-cols-2 gap-6">
             <div className="space-y-2">
               <label
@@ -113,7 +113,7 @@ export default function ContactForm() {
           </p>
           <p className="text-lg text-neutral-900 dark:text-slate-50">
             {showEmail ? (
-              <span>luisdavidtts@outlook.com</span>
+              <span>Luisdavidtts@outlook.com</span>
             ) : (
               <button
                 type="button"

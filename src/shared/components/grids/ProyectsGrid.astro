@@ -3,15 +3,50 @@ import ProyectsCard from "../../../features/projects/components/ProyectsCard.ast
 
 import imgEtl from "../../../assets/images/project_etl.webp";
 import imgSyg from "../../../assets/images/sygpropiedades.avif";
-import imgDph from "../../../assets/images/dphabogados.avif";
+import imgDph from "../../../assets/images/dph-abogados.avif";
 import imgDuarte from "../../../assets/images/cecilia-duarte.avif";
 import imgUV from "../../../assets/images/radiationUV.webp";
+import imgSkySeeing from "../../../assets/images/sky-seeing.webp";
 
 const Projects = [
   {
+    title: "Sky Seeing",
+    description:
+      "Sky Seeing es una app que analiza la observabilidad del cielo de un sitio en tiempo real, combinando clima, efemérides y la contaminación lumínica derivada del modelo de Falchi et al. (2016) para mostrarle al observador el nivel de observabilidad actual, en qué horas mejora, qué factor la limita y qué clase de cielo tiene su ubicación.",
+    url: "https://sky-seeing.vercel.app/",
+    image: imgSkySeeing,
+    technologies: [
+      { id: 1, name: "Next.js", desing: { class: "" } },
+      { id: 2, name: "TypeScript", desing: { class: "" } },
+      { id: 3, name: "Google Cloud Platform", desing: { class: "" } },
+      { id: 4, name: "Tailwind", desing: { class: "" } },
+    ],
+  },
+  {
+    title: "UV Tracker App",
+    description:
+      "App Android para monitoreo de radiación UV en tiempo real. Integré la API de MeteoChile y apliqué la fórmula de Haversine para detectar la estación más cercana al usuario y entregar el dato más representativo.",
+    image: imgUV,
+    technologies: [
+      { id: 1, name: "Android", desing: { class: "" } },
+      { id: 2, name: "Java", desing: { class: "" } },
+    ],
+  },
+  {
+    title: "Sistema ETL Automatizado",
+    description:
+      "Pipeline de datos para reportes de RRHH. El problema eran procesos manuales con 8 horas a la semana y errores recurrentes. Diseñé una arquitectura serverless con AWS Lambda que se ejecuta solo cuando hay datos nuevos, optimizando costos. Reduje el tiempo de generación de 8 horas a 3 minutos.",
+    image: imgEtl,
+    technologies: [
+      { id: 1, name: "Python", desing: { class: "" } },
+      { id: 2, name: "AWS", desing: { class: "" } },
+    ],
+  },
+  {
     title: "DPH Abogados",
     description:
-      "Landing page para despacho legal. El reto era transmitir profesionalismo sin cargar el sitio. Implementé forms as a service con validación en cliente y servidor. Resultado: 40% increase en consultas.",
+      "Landing page para despacho legal. El reto era transmitir profesionalismo sin cargar el sitio. Implementé forms as a service con validación en cliente y servidor, logrando un 30% más de consultas.",
+    url: "https://www.dphabogados.cl/",
     image: imgDph,
     technologies: [
       { id: 1, name: "Astro", desing: { class: "" } },
@@ -20,45 +55,29 @@ const Projects = [
     ],
   },
   {
-    title: "Sistema ETL Automatizado",
-    description:
-      "Pipeline de datos para reportes de RRHH. El problema: procesos manuales con 8 horas/semana y errores recurrentes. Diseñé una arquitectura serverless con AWS Lambda que se ejecuta solo cuando hay datos nuevos, optimizando costos. Reduje el tiempo de generación de 8 horas a 3 minutos.",
-    image: imgEtl,
-    technologies: [
-      { id: 1, name: "Python", desing: { class: "" } },
-      { id: 2, name: "AWS", desing: { class: "" } },
-    ],
-  },
-  {
     title: "S&G Propiedades",
     description:
-      "Landing page para inmobiliaria. El negocio necesitaba generar leads cualificados rápido. Prioricé Core Web Vitals sobre diseño visual. Elegí Astro por su estrategia 'islands' para mínimo JavaScript, resultando en Lighthouse score de 98 y 50% más leads.",
+      "Landing page para inmobiliaria. El negocio necesitaba generar leads cualificados rápido. Prioricé Core Web Vitals sobre diseño visual. Elegí Astro por su estrategia 'islands' para mínimo JavaScript e implementé cache de las respuestas de Strapi para evitar llamadas innecesarias y mantener tiempos de carga mínimos, resultando en Lighthouse score de 98 y 20% más leads.",
+    url: "https://www.sygpropiedades.cl/",
     image: imgSyg,
     technologies: [
       { id: 1, name: "Astro", desing: { class: "" } },
       { id: 2, name: "TypeScript", desing: { class: "" } },
-      { id: 3, name: "Tailwind", desing: { class: "" } },
+      { id: 3, name: "Strapi", desing: { class: "" } },
+      { id: 4, name: "Tailwind", desing: { class: "" } },
     ],
   },
   {
     title: "Abogada Cecilia Duarte",
     description:
-      "Web para despacho legal. El reto era transmitir profesionalismo sin cargar el sitio. Implementé forms as a service con validación en cliente y servidor. Resultado: 40% increase en consultas.",
+      "Web personal para abogada independiente. El reto era que ella misma pudiera publicar contenido sin depender de un desarrollador y mejorar el SEO a largo plazo. Integré Strapi como CMS headless para que cargue artículos jurídicos desde un panel simple, alimentando el sitio con contenido fresco y constante. Logré posicionamiento progresivo en búsquedas legales y autonomía total para la cliente.",
+    url: "https://www.abogadaceciliaduarte.cl/",
     image: imgDuarte,
     technologies: [
       { id: 1, name: "Astro", desing: { class: "" } },
       { id: 2, name: "TypeScript", desing: { class: "" } },
-      { id: 3, name: "Tailwind", desing: { class: "" } },
-    ],
-  },
-  {
-    title: "UV Tracker App",
-    description:
-      "App Android para radiación UV. Integré API de MeteoChile con caching inteligente para funcionar offline. Implementé polling adaptativo que extiende autonomía un 60%.",
-    image: imgUV,
-    technologies: [
-      { id: 1, name: "Android", desing: { class: "" } },
-      { id: 2, name: "Java", desing: { class: "" } },
+      { id: 3, name: "Strapi", desing: { class: "" } },
+      { id: 4, name: "Tailwind", desing: { class: "" } },
     ],
   },
 ];
