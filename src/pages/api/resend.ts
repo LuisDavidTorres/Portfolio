@@ -21,7 +21,7 @@ export const POST: APIRoute = async ({ request }) => {
   try {
     const { error } = await resend.emails.send({
       from: "Acme <onboarding@resend.dev>",
-      to: ["luisdavidtts@outlook.com"],
+      to: ["davidsvtor@gmail.com"],
       subject: "Contacto mediante portfolio",
       html: `<strong>Nombre contacto: ${dataFormJson.name},<br> Email: ${dataFormJson.email}, <br> Mensaje: ${dataFormJson.message} </strong>`,
     });

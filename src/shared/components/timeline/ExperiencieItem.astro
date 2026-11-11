@@ -1,12 +1,13 @@
 ---
 interface Props {
   conpany: string;
+  location: string;
   date: string;
   position: string;
-  description: string;
+  description: string[];
 }
 
-const { conpany, date, position, description } = Astro.props;
+const { conpany, location, date, position, description } = Astro.props;
 ---
 
 <div class="border-l-2 border-neutral-200 dark:border-slate-800 pl-6 pb-12 last:pb-0">
@@ -15,9 +16,9 @@ const { conpany, date, position, description } = Astro.props;
     {position}
   </h3>
   <p class="text-sm font-medium text-neutral-600 dark:text-slate-300 mt-1">
-    {conpany}
+    {conpany} · {location}
   </p>
-  <p class="text-neutral-600 dark:text-slate-100 mt-3 leading-relaxed">
-    {description}
-  </p>
+  <ul class="text-neutral-600 dark:text-slate-100 mt-3 leading-relaxed list-disc pl-5 space-y-2">
+    {description.map((item) => <li>{item}</li>)}
+  </ul>
 </div>

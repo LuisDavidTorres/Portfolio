@@ -3,25 +3,28 @@ import ExperiencieItem from "./ExperiencieItem.astro";
 
 const Experience = [
   {
-    conpany: "Motrixel",
-    date: "Dic 2024 - Feb 2025",
-    position: "Analista de Datos",
-    description:
-      "Diseñé e implementé procesos de transformación de datos para abordar inconsistencias en los registros ingresados manualmente en la base de datos. Apliqué reglas de estandarización y normalización, incluyendo el mapeo de abreviaciones y formatos variables a valores consistentes y legibles para negocio. Esto mejoró la calidad de los datos y permitió un análisis más confiable.",
-  },
-  {
     conpany: "Rentaq",
-    date: "Abr 2024 - Oct 2024",
-    position: "Full Stack Developer",
-    description:
-      "Participé en el diseño y desarrollo de una aplicación web orientada a centralizar la búsqueda de repuestos automotrices, conectando la demanda de clientes con una red de distribuidores. Implementé un modelo de publicación de requerimientos, donde los usuarios generan solicitudes que son visibles para todos los distribuidores registrados, permitiendo a los clientes encontrar repuestos difíciles de conseguir.",
+    location: "La Serena, Chile",
+    date: "Noviembre 2023 - Abril 2026",
+    position: "Desarrollador Full Stack",
+    description: [
+      "Optimicé las consultas de proyección vía ORM en múltiples endpoints de la plataforma, extrayendo y serializando únicamente los atributos requeridos por el frontend para disminuir el tamaño de la carga útil en la red y el tiempo de respuesta.",
+      "Refactoricé componentes de la interfaz de usuario aplicando principios SOLID, lo que incrementó la reutilización del código, facilitó el mantenimiento técnico y redujo el tiempo de desarrollo de nuevas funcionalidades.",
+      "Migré la arquitectura de almacenamiento local hacia Google Cloud Storage, optimizando la tasa de transferencia del servidor y acelerando los tiempos de carga en el frontend.",
+      "Diseñé la estructura del proyecto bajo principios de Arquitectura Limpia, aislando las reglas de negocio para garantizar un sistema altamente testeable, modular y fácil de mantener a largo plazo.",
+    ],
   },
   {
     conpany: "RH Seguridad",
-    date: "Nov 2023 - Mar 2024",
-    position: "Software Developer",
-    description:
-      "Desarrollé una solución para automatizar reportes de recursos humanos, que antes se realizaban de forma manual y requerían varias horas a la semana. Utilicé Python y Pandas para procesar y consolidar la información, lo que permitió reducir errores y eliminar tareas repetitivas, liberando tiempo para actividades de mayor valor.",
+    location: "La Serena, Chile",
+    date: "Diciembre 2022 - Septiembre 2023",
+    position: "Analista de Datos",
+    description: [
+      "Estuve a cargo de la automatización integral del proceso ETL, logrando sustituir el procesamiento manual de archivos y optimizando los tiempos de disponibilidad de datos para su posterior análisis.",
+      "Implementé scripts en Pandas para la transformación de datos, unificando múltiples fuentes, generando nuevas columnas basadas en la información existente y corrigiendo automáticamente duplicados, campos incompletos e inconsistencias de formato.",
+      "Desarrollé tableros interactivos en Power BI configurando la actualización programada de los datos, estructurando modelos relacionales a partir de la información ya transformada para reflejar los KPIs del negocio.",
+      "Configuré sistemas de alertas automatizadas basadas en KPIs críticos, permitiendo la detección temprana de desviaciones en los objetivos del negocio y notificando proactivamente a los equipos de toma de decisiones.",
+    ],
   },
 ];
 ---

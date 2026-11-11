@@ -113,7 +113,7 @@ export default function ContactForm() {
           </p>
           <p className="text-lg text-neutral-900 dark:text-slate-50">
             {showEmail ? (
-              <span>Luisdavidtts@outlook.com</span>
+              <span>davidsvtor@gmail.com</span>
             ) : (
               <button
                 type="button"
