@@ -2,6 +2,8 @@ import type { APIRoute } from "astro";
 import { Resend } from "resend";
 import { clientSchema } from "../../features/contact/schemas/client.shema";
 
+export const prerender = false;
+
 const resend = new Resend(process.env.API_KEY_RESEND);
 
 export const POST: APIRoute = async ({ request }) => {
